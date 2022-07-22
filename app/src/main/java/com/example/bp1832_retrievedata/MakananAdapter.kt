@@ -1,5 +1,7 @@
 package com.example.bp1832_retrievedata
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Bitmap
 import android.view.LayoutInflater
@@ -50,15 +52,16 @@ class MakananAdapter( private val list: ArrayList<MenuModel> ):
             buttonEdit   = v.findViewById( R.id.buttonEditMakanan )
             buttonDelete = v.findViewById( R.id.buttonHapusMakanan )
 
-//            buttonEdit.setOnClickListener {
-//                EditMenuActivity.idMakanan     = textId.text.toString().toInt()
-//                Toast.makeText( context, EditMenuActivity.idMakanan.toString(), Toast.LENGTH_SHORT )
-//                EditMenuActivity.namaMakanan   = textNama.text.toString()
-//                EditMenuActivity.hargaMakanan  = textHarga.text.toString().toInt()
-//                EditMenuActivity.gambarMakanan = imageMenu.drawable.toBitmap( 150, 150 )
-//
-//                val editIntent = Intent( context, EditMenuActivity::class.java )
-//                context.startActivity( editIntent )
+            buttonEdit.setOnClickListener {
+                EditMenuActivity.idMakanan     = textId.text.toString().toInt()
+                Toast.makeText( context, EditMenuActivity.idMakanan.toString(), Toast.LENGTH_SHORT ).show()
+                EditMenuActivity.namaMakanan   = textNama.text.toString()
+                EditMenuActivity.hargaMakanan  = textHarga.text.toString().toInt()
+                EditMenuActivity.gambarMakanan = imageMenu.drawable.toBitmap( 150, 150, null )
+
+                val editIntent = Intent( context, EditMenuActivity::class.java )
+                context.startActivity( editIntent )
+            }
 
             buttonDelete.setOnClickListener {
                 val databaseHelper = DatabaseHelper( context )
@@ -66,6 +69,17 @@ class MakananAdapter( private val list: ArrayList<MenuModel> ):
 
                 val intent = Intent( context, MainActivity::class.java )
                 context.startActivity( intent )
+
+//                AlertDialog.Builder( context )
+//                    .setTitle( "KONFIRMASI" )
+//                    .setMessage( "Apakah Anda yakin ingin menghapus data ini?" )
+//                    .setPositiveButton( "Iya", DialogInterface.OnClickListener {
+//                        dialogInterface, i -> Toast.makeText( context, "memilih tombol Iya", Toast.LENGTH_SHORT ).show()
+//                    } )
+//                    .setNegativeButton( "Tidak", DialogInterface.OnClickListener {
+//                            dialogInterface, i -> Toast.makeText( context, "memilih tombol Tidak", Toast.LENGTH_SHORT ).show()
+//                    } )
+//                    .show()
             }
         }
 

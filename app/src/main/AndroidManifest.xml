@@ -14,19 +14,22 @@
         android:theme="@style/Theme.PizzaApp"
         tools:targetApi="31">
         <activity
-            android:name="com.example.bp1832_retrievedata.AddMenuActivity"
+            android:name=".EditMenuActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.bp1832_retrievedata.RegisterActivity"
+            android:name=".AddMenuActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.bp1832_retrievedata.MainActivity"
+            android:name=".RegisterActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.bp1832_retrievedata.WelcomeActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.bp1832_retrievedata.LoginActivity"
+            android:name=".WelcomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
